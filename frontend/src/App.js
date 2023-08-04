@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import Books from './Books';
-import AddBooks from './AddBooks';
+import Add from './Add';
+import Update from './Update';
 
 function App() {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
@@ -29,7 +30,8 @@ function App() {
       </nav>
       <Routes>
         <Route path="/" element={<Books />} />
-        <Route path="/add" element={<AddBooks />} />
+        <Route path="/add" element={<Add />} />
+        <Route path="/update/:id" element={<Update />} />
       </Routes>
     </div>
   );
