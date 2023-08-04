@@ -34,40 +34,43 @@ const Update = () => {
 
   return (
     <div className="form">
-      <h1>Update the Book</h1>
-      <input
-        type="text"
-        placeholder="Title"
-        name="title"
-        onChange={handleChange}
-      />
-      <br />
-      <textarea
-        rows={5}
-        type="text"
-        placeholder="Description"
-        name="desc"
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="number"
-        placeholder="Price"
-        name="price"
-        onChange={handleChange}
-      />
-      <br />
-      <input
-        type="text"
-        placeholder="Cover"
-        name="cover"
-        onChange={handleChange}
-      />
-      <br />
-      <button onClick={handleClick}>Update</button>
-      <br />
-      {error && "Something went wrong!"}
-    </div>
+        <br />
+        <h1>Update the Book</h1>
+        <br />
+        <input
+            type="text"
+            placeholder="Title"
+            name="title"
+            onChange={handleChange}
+        />
+        <br />
+        <textarea
+            rows={5}
+            type="text"
+            placeholder="Description"
+            name="desc"
+            onChange={handleChange}
+        />
+        <br />
+        <input
+            type="number"
+            placeholder="Price"
+            name="price"
+            onChange={handleChange}
+        />
+        <br />
+        <input
+            type="text"
+            placeholder="Cover"
+            name="cover"
+            onChange={handleChange}
+        />
+        <br />
+        <br />
+        <button onClick={handleClick}>Update</button>
+        <br />
+        {error && "Something went wrong!"}
+        </div>
   );
 };
 

@@ -32,7 +32,9 @@ const Add = () => {
 
   return (
     <div className="form">
+      <br />
       <h1>Add New Book</h1>
+      <br />
       <input
         type="text"
         placeholder="Title"
@@ -61,6 +63,7 @@ const Add = () => {
         name="cover"
         onChange={handleChange}
       />
+      <br />
       <br />
       <button onClick={handleClick}>Add</button>
       <br />

@@ -23,13 +23,14 @@ code {
   display: flex;
   flex-wrap: wrap;
   padding: 5rem;
+  gap: 5rem;
 }
 
 .book {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20vw;
+  width: 25vw;
   padding: 1rem;
   border: solid;
   border-color: var(--header);
@@ -39,6 +40,16 @@ code {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+input {
+  width: 30rem;
+  height: 2rem;
+}
+
+textarea {
+  width: 30rem;
+  height: auto;
 }
 
 button {
@@ -127,6 +138,16 @@ nav a:hover {
 }
 
 @media screen and (max-width: 768px) {
+  .books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book {
+    width: 60vw;
+  }
+
   /* Show the hamburger menu on mobile devices */
   .hamburger-menu {
       display: flex;
