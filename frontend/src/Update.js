@@ -3,16 +3,17 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Update = () => {
-  const [book, setBook] = useState({
-    title: "",
-    desc: "",
-    price: "",
-    cover: "",
-  });
-  const [error,setError] = useState(false)
-
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [book, setBook] = useState({
+    title: location.state.title,
+    desc: location.state.desc,
+    price: location.state.price,
+    cover: location.state.cover,
+  });
+
+  const [error, setError] = useState(false);
 
   const bookId = location.pathname.split("/")[2];
 
@@ -34,43 +35,46 @@ const Update = () => {
 
   return (
     <div className="form">
-        <br />
-        <h1>Update the Book</h1>
-        <br />
-        <input
-            type="text"
-            placeholder="Title"
-            name="title"
-            onChange={handleChange}
-        />
-        <br />
-        <textarea
-            rows={5}
-            type="text"
-            placeholder="Description"
-            name="desc"
-            onChange={handleChange}
-        />
-        <br />
-        <input
-            type="number"
-            placeholder="Price"
-            name="price"
-            onChange={handleChange}
-        />
-        <br />
-        <input
-            type="text"
-            placeholder="Cover"
-            name="cover"
-            onChange={handleChange}
-        />
-        <br />
-        <br />
-        <button onClick={handleClick}>Update</button>
-        <br />
-        {error && "Something went wrong!"}
-        </div>
+      <br />
+      <h1>Update the Book</h1>
+      <br />
+      <input
+        type="text"
+        placeholder="Title"
+        name="title"
+        value={book.title}
+        onChange={handleChange}
+      />
+      <br />
+      <textarea
+        rows={5}
+        placeholder="Description"
+        name="desc"
+        value={book.desc}
+        onChange={handleChange}
+      />
+      <br />
+      <input
+        type="number"
+        placeholder="Price"
+        name="price"
+        value={book.price}
+        onChange={handleChange}
+      />
+      <br />
+      <input
+        type="text"
+        placeholder="Cover"
+        name="cover"
+        value={book.cover}
+        onChange={handleChange}
+      />
+      <br />
+      <br />
+      <button onClick={handleClick}>Update</button>
+      <br />
+      {error && "Something went wrong!"}
+    </div>
   );
 };
 
