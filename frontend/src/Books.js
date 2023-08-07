@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Books = () => {
+const Books = ({ createToastDOM }) => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
@@ -22,6 +22,7 @@ const Books = () => {
         try {
             await axios.delete(`http://localhost:8080/${id}`);
             window.location.reload();
+            createToastDOM("Book has been deleted!");
         } catch (err) {
             console.log(err);
         }

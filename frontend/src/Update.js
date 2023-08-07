@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Update = () => {
+const Update = ({ createToastDOM }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,6 +27,7 @@ const Update = () => {
     try {
       await axios.put(`http://localhost:8080/${bookId}`, book);
       navigate("/");
+      createToastDOM("Book has been updated!");
     } catch (err) {
       console.log(err);
       setError(true);

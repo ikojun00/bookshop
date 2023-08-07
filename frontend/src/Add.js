@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Add = () => {
+const Add = ({ createToastDOM }) => {
   const [book, setBook] = useState({
     title: "",
     desc: "",
@@ -23,6 +23,7 @@ const Add = () => {
     try {
       await axios.post("http://localhost:8080", book);
       navigate("/");
+      createToastDOM("New book added!")
     } catch (err) {
       console.log(err);
       setError(true)

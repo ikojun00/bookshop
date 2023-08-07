@@ -11,8 +11,21 @@ function App() {
     setMobileMenuVisible(!mobileMenuVisible);
   };
 
+  const createToastDOM = (text) => {
+    const notifications = document.querySelector('.notifications');
+    const toast = document.createElement('li');
+    toast.className = `toast`;
+    toast.innerHTML = `<div class="column">
+                           <span>${text}</span>
+                        </div>`;
+    notifications.appendChild(toast);
+    setTimeout(() => notifications.removeChild(notifications.firstChild), 3000);
+    console.log(notifications);
+  }
+
   return (
     <div className="App">
+      <ul className="notifications"></ul>
       <nav>
         <div className="hamburger-menu" onClick={toggleMobileMenu}>
           <div className={`hamburger-line ${mobileMenuVisible ? 'active' : ''}`}></div>
@@ -29,9 +42,9 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="/add" element={<Add />} />
-        <Route path="/update/:id" element={<Update />} />
+        <Route path="/" element={<Books createToastDOM={createToastDOM}/>} />
+        <Route path="/add" element={<Add createToastDOM={createToastDOM}/>} />
+        <Route path="/update/:id" element={<Update createToastDOM={createToastDOM}/>} />
       </Routes>
     </div>
   );
